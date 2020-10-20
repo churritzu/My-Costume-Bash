@@ -19,6 +19,7 @@ COLORBG_BLUE='\e[44m'
 # GIT Function
 BRANCH=""
 CLEANCOLOR=
+
 # Cheka si hay untracket files, o estan en staged
 function checkGitClean(){
   COMMITS=`git status --porcelain`
@@ -39,5 +40,4 @@ get_branch(){
     [ -z "$BRANCH" ] && BRANCH="$NO_EXISTE" || BRANCH="$EXISTE"
     echo -e "$BRANCH"
 }
-# export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ $RIGHT_ARROW "
 export PS1="\n$COLORFG_NEGRO$COLORBG_AMARILLO $FOLDER_ICON \w $COLOR_RESET\$(get_branch)\n$COLORFG_BLANCO$COLORBG_LIGHTGRAY $UBUNTU_ICON \u@\h $COLOR_RESET$COLORFG_LIGHTGRAY$RIGHT_ARROW$COLOR_RESET"
